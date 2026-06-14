@@ -31,3 +31,19 @@ Because functions run separately from storage area, and cannot reliably keep loc
 ###### Another suggestion is long-running agent, and with direct access address, that can help to keep identification even over time, as long they are managed by the cloud.  The paper also recommend better design models for disorderly, asynchronous cloud execution, general intermediate representations, service-class objectives, and powerful security models. 
 
 ###### Generally, the paper is not to intend to reject serverless computing. On the contrast, it suggest that serverless computing have to upgrade to beyond simple stateless functions, in order to support the application to process scale computing and big data.
+
+
+
+##### Part 2: Azure Durable Functions Deep Dive (5 topic explanations)
+###### State Management
+
+Currently, Durable Functions can manage workflow state automatically.  It records orchestration log, checkpoints progress, based on these, it can replay the orchestrator function, in order to rebuild local state.
+
+So, developers can write workflow logic, as  write code, provides to platform to make progress from backend. In case a function app restarts,  or, an orchestration waits for a long time, the workflow can continue from its recorded stop point, rather than starting over. 
+
+This update fixed the the paper’s criticism that FaaS functions are stateless and short time runtime. 
+
+However, the solution is not the exacty what the paper suggested, giving each function durable local memory.  Durable Functions runtime store status still usually on storage provider. 
+
+Therefore, Durable Functions fixed application-level workflow state, but it does not completely fixed the paper’s  concern, which is about efficient in-memory state.
+
