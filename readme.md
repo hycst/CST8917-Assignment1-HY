@@ -35,6 +35,21 @@ Because functions run separately from storage area, and cannot reliably keep loc
 
 
 ##### Part 2: Azure Durable Functions Deep Dive (5 topic explanations)
+
+######  Orchestration Model
+
+Currently,  Azure Durable Functions has extended previous basic Azure Functions, it has new workflow orchestration model. 
+
+A typical Durable Functions application will have client functions, orchestrator functions, and activity functions. 
+
+The client function will start orchestration instance, the orchestrator function controls the workflow logic, and, activity functions is to run the actual work. 
+
+The change from basic FaaS, because the application is more than collection of isolated event-triggered functions.   Instead, the orchestrator will call activities in sequence, wait for results, use timers, handle any external events, and coordinate complex workflows. 
+
+This directly fixed one pint in the paper of Hellerstein et al. (2019): basic FaaS lacks a natural way to compose functions into reliable stateful applications. Durable Functions improves function composition, but it still runs on top of serverless infrastructure and storage-backed coordination.
+
+
+
 ###### State Management
 
 Currently, Durable Functions can manage workflow state automatically.  It records orchestration log, checkpoints progress, based on these, it can replay the orchestrator function, in order to rebuild local state.
