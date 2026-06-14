@@ -36,7 +36,7 @@ Because functions run separately from storage area, and cannot reliably keep loc
 
 ##### Part 2: Azure Durable Functions Deep Dive (5 topic explanations)
 
-######  Orchestration Model
+#####  Orchestration Model
 
 Currently,  Azure Durable Functions has extended previous basic Azure Functions, it has new workflow orchestration model. 
 
@@ -50,7 +50,7 @@ This directly fixed one pint in the paper of Hellerstein et al. (2019): basic Fa
 
 
 
-###### State Management
+##### State Management
 
 Currently, Durable Functions can manage workflow state automatically.  It records orchestration log, checkpoints progress, based on these, it can replay the orchestrator function, in order to rebuild local state.
 
@@ -61,7 +61,7 @@ This update fixed the the paper’s criticism that FaaS functions are stateless 
 However, the solution is not the exacty what the paper suggested, giving each function durable local memory.  Durable Functions runtime store status still usually on storage provider. 
 
 
-###### Execution Timeouts
+##### Execution Timeouts
 
 In current Cloud Computing,  Durable Functions is to fixing the timeout limitations, with allowing orchestrations to run for long periods. 
 
@@ -74,4 +74,20 @@ This is an signficiant change over the initialy FaaS limitations. However, activ
 Therefore, Durable Functions overcomes the timeout limits for workflow coordination, but does not over for each indidual unit of actual work.
 
 Therefore, Durable Functions fixed application-level workflow state, but it does not completely fixed the paper’s  concern, which is about efficient in-memory state.
+
+
+#####  Communication Between Functions
+
+In Durable Functions, orchestrator functions communicate with each other via Functions runtime, for the information of functions activities. 
+
+The orchestrator is responsible for schedules activity calls, holds for results, and records the results in orchestration logs. 
+
+This architecture makes communication more efficiently, more reliable.  
+
+From the developer’s point of view, calling an activity is similar as calling a function. 
+
+This improves the basic FaaS problem where developers must build their own workflow state management. 
+
+However, it only fixed part of the criticism from Hellerstein et al. (2019).   Durable Functions still uses storage in backend, and runtime-managed messages to keep works coordinately.  It still not direct, low-latency, point-to-point networking among functions.
+
 
