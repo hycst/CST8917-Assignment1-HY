@@ -91,3 +91,14 @@ This improves the basic FaaS problem where developers must build their own workf
 However, it only fixed part of the criticism from Hellerstein et al. (2019).   Durable Functions still uses storage in backend, and runtime-managed messages to keep works coordinately.  It still not direct, low-latency, point-to-point networking among functions.
 
 
+#####  Parallel Execution: Fan-Out/Fan-In
+
+Durable Functions can support the fan-out/fan-in pattern. 
+
+In this pattern of fan-out/fan-in, an orchestrator can start several activity functions in parallel, waits for all of them to finish, and then to calculate aggregations of the results.
+
+This is useful for many cases, such as processing many files, calling multiple APIs, or running independent calculations. 
+
+It addresses part of the paper’s concern about distributed computing. It gives developers a built-in way to coordinate parallel serverless work. It is much efficiently than manually building queues, tracking progress, and check results. 
+
+However, fan-out/fan-in works best in the case tasks are mostly independent. It did not fully solve fine-grained taks such as distributed computing, which require frequent communication among workers, shared memory, leader election, and coordination for low-latency.
