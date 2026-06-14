@@ -102,3 +102,16 @@ This is useful for many cases, such as processing many files, calling multiple A
 It addresses part of the paper’s concern about distributed computing. It gives developers a built-in way to coordinate parallel serverless work. It is much efficiently than manually building queues, tracking progress, and check results. 
 
 However, fan-out/fan-in works best in the case tasks are mostly independent. It did not fully solve fine-grained taks such as distributed computing, which require frequent communication among workers, shared memory, leader election, and coordination for low-latency.
+
+
+####  Part 3: Critical Evaluation
+
+As my learning from the research, currently, Azure Durable Functions really changed many, however,  it does not fix all of the concerns from the paper of Hellerstein et al. (2019). 
+
+My understanding, Durable Functions is workable solutuons for limitations of initially FaaS, especially for business workflows, but it does not change to solve all the deeper concerns, which is for data-intensive and distributed cloud programming.
+
+One of the unresolved problem is the data-shipping. Durable Functions makes workflows stateful, but activity functions still run separately with the data processed.   If an activity needs data from  storage, such as Blob Storage,SQL Database, Cosmos DB, or another service, it has to read data via network. 
+
+The orchestration framework did move code closer to the data. This means Durable Functions really improves coordination, but not from the foundation architecture. 
+
+When process large data, a specialized cloud service, such as Azure Data Factory, Databricks, Synapse, or SQLis powerful, because those services are designed to process data direct from storage.
