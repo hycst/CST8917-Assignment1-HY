@@ -60,5 +60,18 @@ This update fixed the the paper’s criticism that FaaS functions are stateless 
 
 However, the solution is not the exacty what the paper suggested, giving each function durable local memory.  Durable Functions runtime store status still usually on storage provider. 
 
+
+###### Execution Timeouts
+
+In current Cloud Computing,  Durable Functions is to fixing the timeout limitations, with allowing orchestrations to run for long periods. 
+
+The orchestrator does not continuously execute like a regular long-running function.  On the contrast, it just check specific breakpoints,  stop while waiting, and only resumes in case activity results, timers, or external events is up. 
+
+This allows workflows to last longer time, rather than let one function invocation running the whole period. 
+
+This is an signficiant change over the initialy FaaS limitations. However, activity functions are still typelly Azure Functions, and have limit of hosting plan.   Such as, in Premium or Dedicated plan, it has more flexibility, but in the Consumption plan, regular function execution has timeout limits. 
+
+Therefore, Durable Functions overcomes the timeout limits for workflow coordination, but does not over for each indidual unit of actual work.
+
 Therefore, Durable Functions fixed application-level workflow state, but it does not completely fixed the paper’s  concern, which is about efficient in-memory state.
 
