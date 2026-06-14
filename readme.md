@@ -114,4 +114,16 @@ One of the unresolved problem is the data-shipping. Durable Functions makes work
 
 The orchestration framework did move code closer to the data. This means Durable Functions really improves coordination, but not from the foundation architecture. 
 
+The second not-fixed concern is the direct communication among functions.  Durable Functions provides model to schedule activities and collecting results, but it did not does not give direct network address for function instances.  
+
+However, for fine-grained distributed systems, it usually need fast messaging, stable identities, membership protocols, and low-latency coordination. 
+
+Durable Functions implements the communication, but still depends on the Durable Functions runtime and state. This is not equivalent to direct network communication.  Therefore, it is suitable for workflows, not good enough for building high-performance distributed databases.
+
+Durable Functions does fix several concerns effectively. It improves function combination, supports long time running workloads, provides checkpointing and replay, and makes fan-out/fan-in much easier. 
+
+These improvement upgrade the workflow model of basic FaaS. For example, orchestrators and activities can build model for a business process.  The developer does not need to track every process of database.
+
+
+
 When process large data, a specialized cloud service, such as Azure Data Factory, Databricks, Synapse, or SQLis powerful, because those services are designed to process data direct from storage.
