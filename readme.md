@@ -1,0 +1,33 @@
+#####  Assignment 1: Serverless Computing - Critical Analysis
+#####  Student: Hesheng Yang
+
+##### Course: CST8917 - Serverless Applications
+#####  Assignment: Assignment 1: Serverless Computing - Critical Analysis
+
+##### Part 1: Paper Summary
+###### This is paper which published in 2019, six yeas ago, by Joseph Hellerstein and his colleges from Berkley.   The paper think that first-generation serverless computing, (especially Functions-as-a-Service (FaaS)), is a key mile store for cloud computing, but it has critical limit for development of cloud computing.
+
+###### The “one step forward” meaning autoscaling.   It provides several advantages, developers can upload functions, run code on demand, save the workload of server management, and, save cost by pay only for actual execution. This is a major improvement, compared to manually virtual machines and predicting peak capacity.  
+
+###### However, the “two steps back” are serious of current FaaS platforms’ disadvantage, it is too weak for data-intensive computing and distributed systems.
+
+
+###### The paper talked about several limitations of severless comouting.
+
+###### Firstly,  there is lifetime limition for functions,  at the times when the paper was written.  For example, AWS Lambda had a just 15-minute execution limit.  It means,  it is very hard for long-running jobs, so, the developers had to split work into smaller pieces and store progress externally. 
+
+###### Second, FaaS platforms brought side effect of communication bottlenecks, and I/O bottlenecks as well. Functions are separated and short lived, and, they had to communicate with each other through cloud storage services, for example, object stores, queues, or databases.  So the communication among processes are very slow, compare to direct network communication.
+
+###### Thirdly, the paper point the “data shipping” architecture has big problem.  Traditional data systems often try to move code closer to data, but, for FaaS, it is designed to moves data to code. 
+
+Because functions run separately from storage area, and cannot reliably keep local state, so then applications have to read and write data through network again and again. This architect brought application latency, more bandwidth use, and more cost. 
+
+###### Fourthly, at that time, FaaS platforms have limited access for hardware.  Serverless computing offered CPU and memory only, but did not give access to GPUs or other hardware.  This is a problem for workloads of machine learning and analytics.
+
+###### The paper also explains that FaaS does not match enough for the requirement for the workloads of distributed and stateful tasks. Distributed systems needs instant fine-grained communication, consistency protocols, leader election, shared state coordination and membership tracking. Because functions are not directly assigned with direct access address, so, they cannot easily communicate like normal distributed processes. On other hands, developers have to rely on slow speed storage storage, so then, the coordination is inefficient.
+
+###### The paper introduce several improvements for next step. They suggest for flexible code and data storage, so the application can move computation closer to data once if needs. They also suggest support for heterogeneous hardware such as GPUs and accelerators.
+
+###### Another suggestion is long-running agent, and with direct access address, that can help to keep identification even over time, as long they are managed by the cloud.  The paper also recommend better design models for disorderly, asynchronous cloud execution, general intermediate representations, service-class objectives, and powerful security models. 
+
+###### Generally, the paper is not to intend to reject serverless computing. On the contrast, it suggest that serverless computing have to upgrade to beyond simple stateless functions, in order to support the application to process scale computing and big data.
