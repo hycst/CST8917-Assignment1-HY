@@ -135,3 +135,12 @@ Because of this, I would like say, Azure Durable Functions is a stable step, rat
 Generally, Azure Durable Functions is valuable because it changed stateless functions into reliable stateful workflows. 
 
 It is a major upgrade for serverless application development, it can be regards as a practical engineering solution for orchestration, rather than complete solution to the all the fundamental limits of initially serverless computing.
+
+
+#####  References
+###### Hellerstein, J. M., Faleiro, J., Gonzalez, J. E., Schleier-Smith, J., Sreekanti, V., Tumanov, A., & Wu, C. (2019). Serverless Computing: One Step Forward, Two Steps Back. CIDR 2019. https://www.cidrdb.org/cidr2019/papers/p119-hellerstein-cidr19.pdf
+###### Microsoft. (2026). Durable Functions overview. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-overview
+###### Microsoft. (2026). Durable orchestrations. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/common/durable-task-orchestrations
+###### Microsoft. (2026). Durable Functions triggers and bindings. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-bindings
+###### Microsoft. (2026). Performance and scale in Durable Functions. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-perf-and-scale
+###### Microsoft. (2025). Azure Functions timeout discussion. Microsoft Learn Q&A. https://learn.microsoft.com/en-us/answers/questions/5535841/timeout-of-durable-function-on-function-optimized
