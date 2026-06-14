@@ -144,3 +144,8 @@ It is a major upgrade for serverless application development, it can be regards 
 ###### Microsoft. (2026). Durable Functions triggers and bindings. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-bindings
 ###### Microsoft. (2026). Performance and scale in Durable Functions. Microsoft Learn. https://learn.microsoft.com/en-us/azure/durable-task/durable-functions/durable-functions-perf-and-scale
 ###### Microsoft. (2025). Azure Functions timeout discussion. Microsoft Learn Q&A. https://learn.microsoft.com/en-us/answers/questions/5535841/timeout-of-durable-function-on-function-optimized
+
+
+#####   AI Disclosure Statement
+I used Deeskseek to review my assignment for spelling, grammar, and completeness, to verify that all assignment requirements were addressed and that no required sections were missing. I also used Deepseek to discuss the concepts of serverless computing to improve my understanding of the background, help me to learning the history and change of key concepts.
+I carefully wrote and edited all content. The submission reflects my own understanding, analysis, and writing.
