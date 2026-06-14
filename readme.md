@@ -124,6 +124,14 @@ Durable Functions does fix several concerns effectively. It improves function co
 
 These improvement upgrade the workflow model of basic FaaS. For example, orchestrators and activities can build model for a business process.  The developer does not need to track every process of database.
 
-
-
 When process large data, a specialized cloud service, such as Azure Data Factory, Databricks, Synapse, or SQLis powerful, because those services are designed to process data direct from storage.
+
+The paper has more suggest to support fluid code/data placement, heterogeneous hardware, long-running addressable agents, and stronger distributed programming models. 
+
+Durable Functions has fixed orchestration, not data locality, specialized hardware, or low-latency distributed coordination.
+
+Because of this, I would like say, Azure Durable Functions is a stable step, rather than fixed complete concerns.  Now the serverless is more practical, but it still has some limits of FaaS.
+
+Generally, Azure Durable Functions is valuable because it changed stateless functions into reliable stateful workflows. 
+
+It is a major upgrade for serverless application development, it can be regards as a practical engineering solution for orchestration, rather than complete solution to the all the fundamental limits of initially serverless computing.
